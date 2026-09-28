@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Appeal</title>
+  <link rel="icon" href="/static/icon.png">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <img src="/static/icon.png" class="logo" alt="Appeal">
+      <div>
+        <div class="brand">Appeal</div>
+        <div class="date" id="dateLine"></div>
+      </div>
+      <button id="btnGoals" class="goal-btn">Цель</button>
+    </header>
+
+    <section class="rings" id="rings">
+      <div class="ring" data-key="kcal"><div class="bar"><i></i></div><b>0</b><span>ккал / 0</span></div>
+      <div class="ring" data-key="protein"><div class="bar"><i></i></div><b>0</b><span>белки / 0</span></div>
+      <div class="ring" data-key="fat"><div class="bar"><i></i></div><b>0</b><span>жиры / 0</span></div>
+      <div class="ring" data-key="carbs"><div class="bar"><i></i></div><b>0</b><span>углев. / 0</span></div>
+    </section>
+
+    <label class="add-btn">+ Добавить фото еды
+      <input type="file" id="photoInput" accept="image/*" capture="environment" hidden>
+    </label>
+    <div id="scanLine" class="scan" hidden></div>
+
+    <h2>Неделя</h2>
+    <div class="week" id="week"></div>
+
+    <h2>Сегодня</h2>
+    <div id="meals"></div>
+  </div>
+
+  <button id="btnChat" class="chat-fab">💬</button>
+
+  <div class="modal" id="goalsModal" hidden>
+    <div class="sheet">
+      <h3>Моя цель</h3>
+      <label>Калории, ккал<input type="number" id="gKcal" inputmode="numeric"></label>
+      <label>Белки, г<input type="number" id="gProtein" inputmode="numeric"></label>
+      <label>Жиры, г<input type="number" id="gFat" inputmode="numeric"></label>
+      <label>Углеводы, г<input type="number" id="gCarbs" inputmode="numeric"></label>
+      <button id="saveGoals" class="add-btn">Сохранить</button>
+      <button id="closeGoals" class="link-btn">Закрыть</button>
+    </div>
+  </div>
+
+  <div class="chat-panel" id="chatPanel" hidden>
+    <div class="chat-head">Appeal · чат <button id="closeChat">✕</button></div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-input">
+      <input id="chatText" placeholder="Спроси про питание...">
+      <button id="sendChat">➤</button>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
